@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【这里替换成您的论文标题】</title>
+    <title> DanceEditor: Towards Iterative Editable Music-driven Dance Generation with
+Open-Vocabulary Descriptions </title>
     
     <!-- 引入Tailwind CSS，一个流行的CSS框架，用于快速构建漂亮的界面 -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -42,10 +43,11 @@
         <!-- 论文标题 -->
         <header class="text-center mb-8">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
-                【这里替换成您的论文标题】
+                DanceEditor: Towards Iterative Editable Music-driven Dance Generation with
+Open-Vocabulary Descriptions
             </h1>
             <p class="text-lg md:text-xl text-gray-600 mt-2">
-                【这里可以放一句副标题或简短描述】
+                【放一句副标题或简短描述】
             </p>
         </header>
 
@@ -53,13 +55,14 @@
         <div class="text-center mb-8">
             <p class="text-lg">
                 <!-- 替换成您的作者列表 -->
-                <span class="font-semibold">作者一</span><sup>1</sup>,
-                <span class="font-semibold">作者二</span><sup>2</sup>,
-                <span class="font-semibold">作者三</span><sup>1</sup>
+                <span class="font-semibold">hengyuan zhang</span><sup>1</sup>,
+                <span class="font-semibold">zhe li</span><sup>2</sup>,
+                <span class="font-semibold">xingqun qi</span><sup>1</sup>,
+                <span class="font-semibold">sirui han</span><sup>1</sup>
             </p>
             <p class="text-md text-gray-500 mt-2">
                 <!-- 替换成您的单位信息 -->
-                <sup>1</sup>【您的大学或研究机构】, <sup>2</sup>【合作单位】
+                <sup>1</sup>【大学或研究机构】, <sup>2</sup>【合作单位】
             </p>
         </div>
 
@@ -93,22 +96,32 @@
                 </div>
                 -->
             </div>
-            <p class="text-center text-gray-500 mt-2 text-sm">【对上图或视频的简短说明】</p>
+            <p class="text-center text-gray-500 mt-2 text-sm">【对teaser的简短说明】</p>
         </section>
 
         <!-- 摘要 -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">摘要 (Abstract)</h2>
+            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Abstract</h2>
             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <p class="text-base leading-relaxed">
-                    【这里替换成您的论文摘要】。我们提出了一种新颖的方法来解决一个长期存在的挑战。通过结合两种先进技术，我们的模型在多个基准测试中取得了最先进的结果。实验表明，我们的方法不仅在准确性上有所提升，还在计算效率上优于现有方法。这项工作为未来的研究开辟了新的可能性。
+                    Generating coherent and diverse human dances from music signals has gained tremendous progress in animating virtual avatars. 
+While existing methods enable dance synthesis directly, they overlook affording editable dance movements for users is more practical in real choreography scenes.
+Moreover, the lack of high-quality dance datasets incorporating iterative editing also limits addressing this challenge.
+To achieve this goal, we first construct \textbf{DanceRemix}, a large-scale multi-turn editable dance dataset comprising the prompt featuring over 25.3M dance frames and 84.5K pairs.
+In addition, we propose a novel framework for iterative and editable dance generation coherently aligned with given music signals, namely \textbf{DanceEditor}. 
+Considering the dance motion should be both musical rhythmic and enable iterative editing by user descriptions, our framework is built upon a prediction-then-editing paradigm unifying multi-modal conditions.
+At the initial prediction stage, our framework improves the authority of generated results by directly modeling dance movements from tailored aligned music.
+Moreover, at the subsequent iterative editing stages, we incorporate text descriptions as conditioning information to draw the editable results through a specific-designed \textbf{Cross-modality Editing Module (CEM)}.
+Specifically, CEM adaptively integrates the initial prediction with music and text prompts as temporal motion cues to guide the synthesized sequences.
+Thereby the results display music harmonic while preserving fine-grained semantic alignment with text descriptions.
+Extensive experiments demonstrate that our method outperforms the state-of-the-art models on our newly collected DanceRemix dataset.
                 </p>
             </div>
         </section>
 
         <!-- 主要成果/图表示例 -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">主要成果 (Results)</h2>
+            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Results</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- 成果一 -->
                 <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
@@ -130,18 +143,14 @@
             <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">如何引用 (Citation)</h2>
             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <p class="mb-4">如果您在研究中使用了我们的工作，请引用：</p>
-                <pre><code>@article{【您的引用标签，如Author2025Title】,
-  title   = {【您的论文标题】},
-  author  = {【作者一 and 作者二 and 作者三】},
-  journal = {【发表的会议或期刊，如CVPR】},
-  year    = {2025}
+                <pre><code>@article{
 }</code></pre>
             </div>
         </section>
 
         <!-- 页脚 -->
         <footer class="text-center mt-12 text-gray-500 text-sm">
-            <p>&copy; 2025 【您的姓名或团队名称】. 模板由 Gemini 生成。</p>
+            <p>&copy; 2025 【姓名或团队名称】.</p>
         </footer>
 
     </div>
