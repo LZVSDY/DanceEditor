@@ -9,16 +9,77 @@ Open-Vocabulary Descriptions </title>
     <!-- 引入Tailwind CSS，一个流行的CSS框架，用于快速构建漂亮的界面 -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 引入Inter字体，这是一种干净、易读的字体，非常适合学术网站 -->
+    <!-- 引入Roboto字体，这是一种现代、清晰的字体，非常适合学术网站 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* 自定义样式，将Inter字体应用到整个页面 */
+        /* 动态网络状背景花纹 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                /* 网络节点 */
+                radial-gradient(circle at 15% 25%, rgba(59, 130, 246, 0.25) 2px, transparent 3px),
+                radial-gradient(circle at 85% 35%, rgba(139, 92, 246, 0.22) 1.5px, transparent 2.5px),
+                radial-gradient(circle at 25% 75%, rgba(34, 197, 94, 0.18) 2px, transparent 3px),
+                radial-gradient(circle at 75% 15%, rgba(59, 130, 246, 0.16) 1px, transparent 2px),
+                radial-gradient(circle at 65% 85%, rgba(139, 92, 246, 0.15) 1.5px, transparent 2.5px),
+                /* 连接线 */
+                linear-gradient(45deg, transparent 49%, rgba(59, 130, 246, 0.08) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(139, 92, 246, 0.06) 50%, transparent 51%),
+                linear-gradient(30deg, transparent 49.5%, rgba(34, 197, 94, 0.05) 50%, transparent 50.5%);
+            background-size: 
+                400px 400px, 350px 350px, 450px 450px, 300px 300px, 380px 380px,
+                200px 200px, 250px 250px, 180px 180px;
+            animation: networkRotate 240s linear infinite;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                /* 第二层网络 */
+                radial-gradient(circle at 35% 45%, rgba(59, 130, 246, 0.12) 1px, transparent 2px),
+                radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.10) 1.5px, transparent 2.5px),
+                radial-gradient(circle at 45% 20%, rgba(34, 197, 94, 0.08) 1px, transparent 2px),
+                /* 反向连接线 */
+                linear-gradient(60deg, transparent 49.5%, rgba(59, 130, 246, 0.04) 50%, transparent 50.5%),
+                linear-gradient(-30deg, transparent 49.5%, rgba(139, 92, 246, 0.04) 50%, transparent 50.5%);
+            background-size: 
+                320px 320px, 280px 280px, 360px 360px,
+                150px 150px, 170px 170px;
+            animation: networkRotate 300s linear infinite reverse;
+        }
+        
+        @keyframes networkRotate {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.05);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        /* 自定义样式，将Roboto字体应用到整个页面 */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f9fafb; /* 使用一个非常浅的灰色作为背景 */
+            position: relative;
         }
         /* 为标题添加一点额外的样式 */
         h1, h2 {
@@ -33,6 +94,10 @@ Open-Vocabulary Descriptions </title>
             overflow-x: auto; /* 水平滚动 */
             font-size: 0.875rem;
         }
+        /* 摘要部分使用新罗马字体 */
+        .abstract-text {
+            font-family: 'Times New Roman', Times, serif;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -46,23 +111,23 @@ Open-Vocabulary Descriptions </title>
                 DanceEditor: Towards Iterative Editable Music-driven Dance Generation with
 Open-Vocabulary Descriptions
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 mt-2">
-                【放一句副标题或简短描述】
-            </p>
         </header>
 
         <!-- 作者信息 -->
         <div class="text-center mb-8">
             <p class="text-lg">
                 <!-- 替换成您的作者列表 -->
-                <span class="font-semibold">hengyuan zhang * </span><sup>1</sup>,
-                <span class="font-semibold">zhe li * </span><sup>1</sup>,
-                <span class="font-semibold">xingqun qi</span><sup>2</sup>,
-                <span class="font-semibold">sirui han</span><sup>2</sup>
+                <span class="font-semibold">Hengyuan Zhang * </span><sup>1</sup>,
+                <span class="font-semibold">Zhe Li * </span><sup>1</sup>,
+                <span class="font-semibold">Xingqun Qi</span><sup>2</sup><span class="text-blue-600">✉</span>,
+                <span class="font-semibold">Mengze Li</span><sup>2</sup>,
+                <span class="font-semibold">Muyi Sun</span><sup>3</sup>,
+                <span class="font-semibold">Mang Zhang</span><sup>3</sup>,
+                <span class="font-semibold">Sirui Han</span><sup>2</sup><span class="text-blue-600">✉</span>
             </p>
             <p class="text-md text-gray-500 mt-2">
                 <!-- 替换成您的单位信息 -->
-                <sup>1</sup>【大学或研究机构】, <sup>2</sup>【合作单位】
+                <sup>1</sup> Peking University, <sup>2</sup> The Hong Kong University of Science and Technology, <sup>3</sup> Beijing University of Posts and Telecommunications
             </p>
         </div>
 
@@ -85,9 +150,8 @@ Open-Vocabulary Descriptions
         <!-- 概念图/视频预览 -->
         <section class="mb-12">
             <div class="bg-white p-2 rounded-lg shadow-lg border border-gray-200">
-                <!-- 您可以在这里放一张核心成果图，或者一个嵌入的视频 -->
-                <!-- 图片示例 -->
-                <img src="https://placehold.co/800x450/e2e8f0/334155?text=核心成果或概念图" alt="论文核心概念图" class="w-full rounded-md">
+                <!-- 使用figure目录下的PNG图片 -->
+                <img src="./figure/DanceEditor_teaser.png" alt="DanceEditor论文概念图" class="w-full rounded-md">
                 
                 <!-- 如果要用视频，可以注释掉上面的img标签，使用下面的iframe -->
                 <!-- 
@@ -96,22 +160,22 @@ Open-Vocabulary Descriptions
                 </div>
                 -->
             </div>
-            <p class="text-center text-gray-500 mt-2 text-sm">【对teaser的简短说明】</p>
+            <p class="text-center text-gray-500 mt-2 text-sm"> Our <strong>DanceEditor</strong> framework, pre-trained on a large-scale dataset, enables iterative and editable dance generation that is coherently aligned with the provided music signals. The highlighted texts and avatar shadow effects here specifically indicate edits related to body movements.</p>
         </section>
 
         <!-- 摘要 -->
         <section class="mb-12">
             <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Abstract</h2>
             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <p class="text-base leading-relaxed">
+                <p class="text-base leading-relaxed abstract-text">
                     Generating coherent and diverse human dances from music signals has gained tremendous progress in animating virtual avatars. 
 While existing methods enable dance synthesis directly, they overlook affording editable dance movements for users is more practical in real choreography scenes.
 Moreover, the lack of high-quality dance datasets incorporating iterative editing also limits addressing this challenge.
-To achieve this goal, we first construct \textbf{DanceRemix}, a large-scale multi-turn editable dance dataset comprising the prompt featuring over 25.3M dance frames and 84.5K pairs.
-In addition, we propose a novel framework for iterative and editable dance generation coherently aligned with given music signals, namely \textbf{DanceEditor}. 
+To achieve this goal, we first construct <strong>DanceRemix</strong>, a large-scale multi-turn editable dance dataset comprising the prompt featuring over 25.3M dance frames and 84.5K pairs.
+In addition, we propose a novel framework for iterative and editable dance generation coherently aligned with given music signals, namely <strong>DanceEditor</strong>.
 Considering the dance motion should be both musical rhythmic and enable iterative editing by user descriptions, our framework is built upon a prediction-then-editing paradigm unifying multi-modal conditions.
 At the initial prediction stage, our framework improves the authority of generated results by directly modeling dance movements from tailored aligned music.
-Moreover, at the subsequent iterative editing stages, we incorporate text descriptions as conditioning information to draw the editable results through a specific-designed \textbf{Cross-modality Editing Module (CEM)}.
+Moreover, at the subsequent iterative editing stages, we incorporate text descriptions as conditioning information to draw the editable results through a specific-designed <strong>Cross-modality Editing Module (CEM)</strong>.
 Specifically, CEM adaptively integrates the initial prediction with music and text prompts as temporal motion cues to guide the synthesized sequences.
 Thereby the results display music harmonic while preserving fine-grained semantic alignment with text descriptions.
 Extensive experiments demonstrate that our method outperforms the state-of-the-art models on our newly collected DanceRemix dataset.
@@ -119,38 +183,102 @@ Extensive experiments demonstrate that our method outperforms the state-of-the-a
             </div>
         </section>
 
-        <!-- 主要成果/图表示例 -->
+        <!-- 框架图 -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Results</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- 成果一 -->
+            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Framework</h2>
+            <div class="grid grid-cols-1 gap-8">
                 <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                    <img src="https://placehold.co/400x300/e2e8f0/334155?text=图1：方法架构" alt="方法架构图" class="w-full rounded-md mb-3">
-                    <h3 class="font-semibold text-lg mb-1">方法架构</h3>
-                    <p class="text-sm text-gray-600">【解释模型或方法的架构。】</p>
-                </div>
-                <!-- 成果二 -->
-                <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                    <img src="https://placehold.co/400x300/e2e8f0/334155?text=图2：实验结果对比" alt="实验结果对比图" class="w-full rounded-md mb-3">
-                    <h3 class="font-semibold text-lg mb-1">实验结果对比</h3>
-                    <p class="text-sm text-gray-600">【这里是对图2的简短描述，展示结果与基线方法的对比。】</p>
+                    <img src="./figure/Method_Architecture.png" alt="Prediction-then-Editing Paradigm" class="w-full rounded-md mb-3">
+                    <h3 class="font-semibold text-lg mb-1"> Prediction-then-Editing Paradigm</h3>
+                    <p class="text-base leading-relaxed abstract-text">In the initial prediction stage, a diffusion transformer-based <strong>Generating Branch</strong> takes music signals as input and synthesizes
+vivid dance motions. During the second stage, the <strong>Editing Branch</strong> that contains a <strong>Cross-modality Editing Module (CEM)</strong> adaptively
+incorporates the initial dance predictions with both the music and text prompts, guiding the generation of edited dance sequences.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 引用/BibTeX -->
+        <!-- dataset workflow -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Dataset Workflow</h2>
+            <!-- workflow -->
+            <div class="bg-white p-2 rounded-lg shadow-lg border border-gray-200">
+                <!-- 图片嵌入 -->
+                <img src="./figure/Dataset_Workflow.png" alt="Dataset Workflow图" class="w-full rounded-md">
+                <p class="text-base leading-relaxed abstract-text">The workflow of DanceRemix dataset construction. 
+  Firstly, we perform motion-to-motion retrieval to obtain similar dance motion pairs. 
+  Then, we align the motion beats of the edited dance with the music beats.
+  For aligned dance pairs, we use Gemini to generate dense dance captions for the dance videos.
+  Next, based on the generated captions, we leverage ChatGPT to generate edit instructions. 
+  Through several motion pair retrievals, we obtain music, seed dance, a series of edit prompts, and corresponding edited dance motions. </p>
+            </div>
+            <!-- dataset 效果展示 -->
+            <!-- 需要放四个 mp4，放两行每行两个 -->
+            <div class="grid grid-cols-2 gap-4">
+                <video class="w-full rounded-md" controls preload="metadata" muted>
+                    <source src="./figure/video1.mp4" type="video/mp4">
+                    <source src="./figure/video1.webm" type="video/webm">
+                    <p>Your browser does not support video playback. <a href="./figure/video1.mp4" target="_blank">Click to download video</a></p>
+                </video>
+                <video class="w-full rounded-md" controls preload="metadata" muted>
+                    <source src="./figure/video2.mp4" type="video/mp4">
+                    <source src="./figure/video2.webm" type="video/webm">
+                    <p>Your browser does not support video playback. <a href="./figure/video2.mp4" target="_blank">Click to download video</a></p>
+                </video>
+                <video class="w-full rounded-md" controls preload="metadata" muted>
+                    <source src="./figure/video3.mp4" type="video/mp4">
+                    <source src="./figure/video3.webm" type="video/webm">
+                    <p>Your browser does not support video playback. <a href="./figure/video3.mp4" target="_blank">Click to download video</a></p>
+                </video>
+                <video class="w-full rounded-md" controls preload="metadata" muted>
+                    <source src="./figure/video4.mp4" type="video/mp4">
+                    <source src="./figure/video4.webm" type="video/webm">
+                    <p>Your browser does not support video playback. <a href="./figure/video4.mp4" target="_blank">Click to download video</a></p>
+                </video>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Results</h2>
+            <div class="grid grid-cols-1 gap-8">
+                <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
+                    <img src="./figure/Results.png" alt="Results Figure" class="w-full rounded-md mb-3">
+                    <h3 class="font-semibold text-lg mb-1"> Iterative Editable Dance Generation </h3>
+                    <p class="text-base leading-relaxed abstract-text">Our framework demonstrates superior performance in generating coherent and editable dance sequences. The results show significant improvements in both motion quality and user controllability compared to existing methods.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Video -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Demo</h2>
+            <div class="bg-white p-2 rounded-lg shadow-lg border border-gray-200">
+                <!-- YouTube Video Embed -->
+                <div class="aspect-w-16 aspect-h-9 relative" style="padding-bottom: 56.25%; height: 0;">
+                    <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        class="absolute top-0 left-0 w-full h-full rounded-md">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citation/BibTeX -->
         <section>
             <h2 class="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-4">Citation</h2>
             <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <p class="mb-4">如果您在研究中使用了我们的工作，请引用：</p>
+                <p class="mb-4">If you use our work in your research, please cite:</p>
                 <pre><code>@article{
 }</code></pre>
             </div>
         </section>
 
-        <!-- 页脚 -->
+        <!-- Footer -->
         <footer class="text-center mt-12 text-gray-500 text-sm">
-            <p>&copy; 2025 【姓名或团队名称】.</p>
+            <p>2025 ICCV</p>
         </footer>
 
     </div>
